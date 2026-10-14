@@ -1,0 +1,120 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+$card-accents: (
+    variables: $leaf,
+    mixins: $gold,
+    nesting: $forest
+);
+
+.sample-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.sample-card {
+    @include soft-panel;
+    display: flex;
+    min-height: 170px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 22px;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(32, 50, 41, .09);
+    }
+
+    @each $class, $accent in $card-accents {
+        &--#{$class} {
+            > span {
+                color: $accent;
+            }
+        }
+    }
+
+    > span {
+        color: inherit;
+        font-size: 9px;
+        font-weight: 750;
+        letter-spacing: .14em;
+    }
+
+    strong {
+        margin-top: 14px;
+        font-size: 15px;
+    }
+
+    p {
+        margin: 7px 0 0;
+        color: #737e75;
+        font-size: 12px;
+    }
+}
+
+.concept-card {
+    @include soft-panel;
+    padding: 24px;
+
+    .card-index {
+        color: $leaf;
+        font-size: 9px;
+        font-weight: 750;
+        letter-spacing: .13em;
+    }
+
+    h3 {
+        margin: 24px 0 9px;
+        font-size: 18px;
+    }
+
+    p {
+        min-height: 62px;
+        margin: 0;
+        color: #6e7971;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    code {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 8px 10px;
+        border-radius: 7px;
+        color: $forest;
+        background: #edf2eb;
+        font-size: 11px;
+    }
+
+    &--dark {
+        border-color: $forest;
+        color: #fff;
+        background: $forest;
+
+        .card-index {
+            color: #c8dfc4;
+        }
+
+        p {
+            color: #d9e4da;
+        }
+
+        code {
+            color: #fff;
+            background: rgba(12, 39, 25, .28);
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .sample-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .concept-card p {
+        min-height: 0;
+    }
+}

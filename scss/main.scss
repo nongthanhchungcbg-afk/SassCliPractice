@@ -1,0 +1,296 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: $ink;
+    background: #fff;
+    font-family: $font-stack;
+}
+
+a {
+    @include focus-ring;
+}
+
+.lab-page {
+    width: min(100% - 48px, 1120px);
+    margin-inline: auto;
+}
+
+.lab-header {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $line;
+
+    .lab-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: $ink;
+        font-weight: 750;
+        text-decoration: none;
+    }
+
+    .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 50%;
+        color: #fff;
+        background: $forest;
+    }
+
+    .brand-label {
+        margin-left: 4px;
+        color: $leaf;
+        font-size: 10px;
+        letter-spacing: .12em;
+    }
+
+    .github-link {
+        color: $forest;
+        font-size: 13px;
+        text-decoration: none;
+    }
+}
+
+.hero {
+    padding: 88px 0 80px;
+    background:
+        radial-gradient(circle at 82% 28%, rgba(223, 182, 117, .66) 0 65px, transparent 66px),
+        radial-gradient(ellipse at 82% 35%, rgba(216, 230, 211, .9) 0 220px, transparent 221px);
+
+    h1 {
+        max-width: 780px;
+        margin: 16px 0;
+        font-size: clamp(44px, 7vw, 80px);
+        font-weight: 650;
+        letter-spacing: -.055em;
+        line-height: 1.02;
+
+        span {
+            color: $leaf;
+        }
+    }
+
+    .hero-copy {
+        max-width: 590px;
+        color: #6a756d;
+        font-size: 17px;
+        line-height: 1.75;
+    }
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: $leaf;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: .15em;
+}
+
+.command-card {
+    display: flex;
+    width: min(100%, 570px);
+    align-items: center;
+    gap: 15px;
+    margin-top: 28px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    color: #fff;
+    background: $ink;
+
+    .command-label {
+        color: #bdd8bd;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: .11em;
+    }
+
+    code {
+        color: #fff;
+        font-size: 13px;
+    }
+
+    .command-hint {
+        margin-left: auto;
+        color: #b9c4bb;
+        font-size: 11px;
+    }
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 17px;
+    color: #68796d;
+    font-size: 12px;
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #5d9b68;
+        box-shadow: 0 0 0 4px #eaf1e8;
+    }
+}
+
+.concepts {
+    padding: 60px 0;
+
+    .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+
+        h2 {
+            margin: 0;
+            font-size: clamp(25px, 3vw, 36px);
+            letter-spacing: -.04em;
+        }
+
+        > p {
+            max-width: 330px;
+            margin: 0;
+            color: #707b73;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+    }
+
+    .concept-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+.output-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 48px;
+    border-radius: 18px;
+    color: #fff;
+    background: $forest;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 42px);
+        letter-spacing: -.035em;
+        line-height: 1.15;
+    }
+
+    .eyebrow {
+        color: #cadfc6;
+    }
+
+    .tree {
+        margin: 0;
+        padding: 22px 26px;
+        border-radius: 12px;
+        color: #e9f0e6;
+        background: rgba(14, 37, 26, .28);
+        font-size: 13px;
+        line-height: 1.7;
+    }
+}
+
+.sample-section {
+    padding: 64px 0;
+
+    h2 {
+        margin: 0 0 24px;
+        font-size: clamp(25px, 3vw, 36px);
+        letter-spacing: -.04em;
+    }
+}
+
+.lab-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    border-top: 1px solid $line;
+    color: #778178;
+    font-size: 10px;
+    letter-spacing: .07em;
+}
+
+@media (max-width: 720px) {
+    .lab-page {
+        width: min(100% - 32px, 540px);
+    }
+
+    .lab-header {
+        min-height: 66px;
+
+        .brand-label,
+        .github-link {
+            display: none;
+        }
+    }
+
+    .hero {
+        padding: 64px 0 50px;
+        background:
+            radial-gradient(circle at 86% 35%, rgba(223, 182, 117, .55) 0 42px, transparent 43px),
+            radial-gradient(ellipse at 86% 38%, rgba(216, 230, 211, .8) 0 145px, transparent 146px);
+
+        h1 {
+            font-size: clamp(42px, 12vw, 62px);
+        }
+    }
+
+    .command-card {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+
+        .command-hint {
+            margin-left: 0;
+        }
+    }
+
+    .concepts {
+        padding: 42px 0;
+
+        .section-heading {
+            display: block;
+
+            > p {
+                margin-top: 12px;
+            }
+        }
+
+        .concept-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .output-section {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 24px;
+        padding: 28px;
+    }
+
+    .lab-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Thực hành biên dịch Sass bằng npm và Sass CLI.">
+    <title>Sass CLI | Phòng thực hành</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+    <main class="lab-page">
+        <header class="lab-header">
+            <a class="lab-brand" href="#home"><span class="brand-mark">S</span> Sass CLI <span class="brand-label">PHÒNG THỰC HÀNH</span></a>
+            <a class="github-link" href="https://sass-lang.com/documentation/cli/dart-sass/">Tài liệu Sass CLI <span aria-hidden="true">↗</span></a>
+        </header>
+
+        <section class="hero" id="home">
+            <p class="eyebrow">SCSS → CSS · NPM · CLI</p>
+            <h1>Viết gọn bằng Sass.<br><span>Biên dịch bằng CLI.</span></h1>
+            <p class="hero-copy">Một dự án nhỏ để thực hành cài đặt Sass qua npm, biên dịch SCSS, chạy chế độ theo dõi và xử lý nhiều entry point cùng lúc.</p>
+            <div class="command-card">
+                <span class="command-label">BIÊN DỊCH TOÀN BỘ THƯ MỤC</span>
+                <code>npm run build</code>
+                <span class="command-hint">scss/ → css/</span>
+            </div>
+            <div class="status-row"><span class="status-dot"></span><span>Hai file SCSS đầu vào · Hai file CSS đầu ra</span></div>
+        </section>
+
+        <section class="concepts">
+            <div class="section-heading">
+                <div><p class="eyebrow">THỬ NGHIỆM THỰC TẾ</p><h2>Cùng một project, nhiều cách chạy.</h2></div>
+                <p>Chạy các lệnh bên dưới trong thư mục dự án sau khi cài dependencies.</p>
+            </div>
+            <div class="concept-grid">
+                <article class="concept-card">
+                    <span class="card-index">01 / CÀI ĐẶT</span>
+                    <h3>npm install</h3>
+                    <p>Cài Dart Sass vào project như một dev dependency. Kiểm tra phiên bản Node.js, npm và Sass CLI trước khi bắt đầu.</p>
+                    <code>node -v · npm -v · npx sass --version</code>
+                </article>
+                <article class="concept-card concept-card--dark">
+                    <span class="card-index">02 / THEO DÕI</span>
+                    <h3>npm run watch</h3>
+                    <p>Sass CLI theo dõi thư mục SCSS và tự cập nhật các file CSS khi bạn lưu thay đổi.</p>
+                    <code>npm run watch</code>
+                </article>
+                <article class="concept-card">
+                    <span class="card-index">03 / NHIỀU FILE</span>
+                    <h3>scss/ → css/</h3>
+                    <p>Biên dịch mọi entry point trong thư mục nguồn sang cấu trúc CSS tương ứng chỉ với một lệnh.</p>
+                    <code>npm run build</code>
+                </article>
+            </div>
+        </section>
+
+        <section class="output-section">
+            <div>
+                <p class="eyebrow">CẤU TRÚC ĐẦU RA</p>
+                <h2>SCSS được biên dịch,<br>trình duyệt đọc CSS.</h2>
+            </div>
+            <pre class="tree"><code>scss/
+├── _tokens.scss
+├── _mixins.scss
+├── main.scss
+└── cards.scss
+
+css/
+├── main.css
+└── cards.css</code></pre>
+        </section>
+
+        <section class="sample-section" aria-labelledby="samples-title">
+            <p class="eyebrow">TỪ FILE CARDS.SCSS</p>
+            <h2 id="samples-title">Một vài thẻ đã được biên dịch.</h2>
+            <div class="sample-grid">
+                <article class="sample-card sample-card--variables"><span>VARIABLES</span><strong>Màu sắc dùng chung</strong><p>Một bảng màu, nhiều thành phần.</p></article>
+                <article class="sample-card sample-card--mixins"><span>MIXINS</span><strong>Quy tắc có thể dùng lại</strong><p>Viết một lần, áp dụng nhất quán.</p></article>
+                <article class="sample-card sample-card--nesting"><span>NESTING</span><strong>Cấu trúc SCSS rõ ràng</strong><p>Chọn lọc dễ đọc, CSS đầu ra chuẩn.</p></article>
+            </div>
+        </section>
+
+        <footer class="lab-footer"><span>THỰC HÀNH SASS CLI · 2026</span><span>Nguồn SCSS và CSS biên dịch có trong repository.</span></footer>
+    </main>
+</body>
+</html>

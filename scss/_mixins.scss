@@ -1,0 +1,14 @@
+@use "tokens" as *;
+
+@mixin focus-ring {
+    &:focus-visible {
+        outline: 3px solid $gold;
+        outline-offset: 3px;
+    }
+}
+
+@mixin soft-panel($background: #fff) {
+    border: 1px solid $line;
+    border-radius: 16px;
+    background: $background;
+}

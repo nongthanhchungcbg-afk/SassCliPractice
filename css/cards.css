@@ -1,0 +1,103 @@
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sample-card {
+  border: 1px solid #e2e7df;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  min-height: 170px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 22px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sample-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(32, 50, 41, 0.09);
+}
+.sample-card--variables > span {
+  color: #5d8163;
+}
+.sample-card--mixins > span {
+  color: #dfb675;
+}
+.sample-card--nesting > span {
+  color: #285640;
+}
+.sample-card > span {
+  color: inherit;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+.sample-card strong {
+  margin-top: 14px;
+  font-size: 15px;
+}
+.sample-card p {
+  margin: 7px 0 0;
+  color: #737e75;
+  font-size: 12px;
+}
+
+.concept-card {
+  border: 1px solid #e2e7df;
+  border-radius: 16px;
+  background: #fff;
+  padding: 24px;
+}
+.concept-card .card-index {
+  color: #5d8163;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+.concept-card h3 {
+  margin: 24px 0 9px;
+  font-size: 18px;
+}
+.concept-card p {
+  min-height: 62px;
+  margin: 0;
+  color: #6e7971;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.concept-card code {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  color: #285640;
+  background: #edf2eb;
+  font-size: 11px;
+}
+.concept-card--dark {
+  border-color: #285640;
+  color: #fff;
+  background: #285640;
+}
+.concept-card--dark .card-index {
+  color: #c8dfc4;
+}
+.concept-card--dark p {
+  color: #d9e4da;
+}
+.concept-card--dark code {
+  color: #fff;
+  background: rgba(12, 39, 25, 0.28);
+}
+
+@media (max-width: 720px) {
+  .sample-grid {
+    grid-template-columns: 1fr;
+  }
+  .concept-card p {
+    min-height: 0;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "sass-cli-practice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Practice npm, Sass CLI compilation, watch mode, and multiple SCSS entry points.",
+  "scripts": {
+    "sass:version": "sass --version",
+    "build": "sass --no-source-map scss:css",
+    "build:main": "sass --no-source-map scss/main.scss css/main.css",
+    "build:cards": "sass --no-source-map scss/cards.scss css/cards.css",
+    "watch": "sass --no-source-map --watch scss:css"
+  },
+  "devDependencies": {
+    "sass": "1.105.1"
+  }
+}
